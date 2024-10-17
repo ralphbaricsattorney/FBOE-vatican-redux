@@ -2,8 +2,8 @@ library(MASS)
 library(ggplot2)
 library(dplyr)
 
-births <- read.csv("birth_results.csv")
-cardinals <- read.csv("all_cardinals.csv")
+births <- read.csv("data/clean/birth_results.csv")
+cardinals <- read.csv("data/clean/all_cardinals.csv")
 data <- left_join(cardinals, births, by = "cardinal")
 modernData <- data[!data$century %in% c("fifteenth_century", "sixteenth_century"), ]
 oldData <- data[data$century %in% c("fifteenth_century", "sixteenth_century"), ]
